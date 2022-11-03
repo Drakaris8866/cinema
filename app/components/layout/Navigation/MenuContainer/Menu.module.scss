@@ -1,0 +1,20 @@
+.menu {
+  @apply pl-layout;
+
+  .title {
+    @apply mb-5 text-gray-500 text-3xl
+  }
+
+  .item {
+    @apply mb-7 transition-colors text-gray-600 hover:text-white text-xl hover:cursor-pointer items-center flex;
+  }
+
+  .active {
+    @apply border-r-4 border-r-primary text-white;
+    > a {
+      > svg {
+        fill: #e30b13;
+      }
+    }
+  }
+}

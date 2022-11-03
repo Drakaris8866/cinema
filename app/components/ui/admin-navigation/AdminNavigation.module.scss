@@ -1,0 +1,15 @@
+.items{
+  @apply flex justify-evenly air-block py-4 mx-10 mb-10;
+
+  .item{
+    @apply text-gray-500 hover:text-white transition-all relative;
+  }
+
+  .active{
+    @apply text-white relative;
+    &:after{
+      @apply absolute -bottom-3.5 left-0 bg-primary h-0.5 w-full rounded;
+      content: '';
+    }
+  }
+}

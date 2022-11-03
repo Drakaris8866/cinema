@@ -1,0 +1,11 @@
+.root {
+  @apply flex items-center;
+
+  svg {
+    @apply absolute left-14 z-2 fill-gray-500 text-2lg;
+  }
+
+  .input {
+    @apply px-5 pl-9 py-2 rounded-3xl;
+  }
+}

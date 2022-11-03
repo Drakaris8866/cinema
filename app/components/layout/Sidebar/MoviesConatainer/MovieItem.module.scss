@@ -1,0 +1,27 @@
+.item {
+  @apply flex gap-4 mb-6;
+
+  > img {
+    @apply rounded-image;
+  }
+
+  .content {
+    @apply flex flex-col justify-between;
+
+    .genre {
+      @apply text-gray-600;
+    }
+
+    .title {
+      @apply capitalize truncate;
+    }
+
+    .rating {
+      @apply flex items-center;
+
+      > svg {
+        fill: gold;
+      }
+    }
+  }
+}

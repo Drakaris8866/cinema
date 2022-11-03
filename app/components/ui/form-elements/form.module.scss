@@ -1,0 +1,26 @@
+.button {
+  @apply btn-primary px-7 py-2 hover:bg-opacity-75 hover:bg-primary transition;
+}
+
+.common {
+  @apply relative border-b border-gray-600 transition-colors focus-within:border-primary mb-10;
+
+  > label {
+    @apply block;
+
+    > span {
+      @apply text-xs uppercase text-gray-600 block;
+    }
+  }
+}
+
+.field {
+  @apply text-left;
+  input {
+    @apply outline-border-none w-full focus:ring-0 bg-transparent text-gray-500 m-0 p-0;
+  }
+}
+
+.error {
+  @apply absolute  text-sm w-full text-primary;
+}
