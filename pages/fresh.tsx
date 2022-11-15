@@ -1,0 +1,32 @@
+import { GetStaticProps, NextPage } from 'next'
+import { IMovie } from '@shared/movies.types'
+import Catalog from '@ui/catalog/Catalog'
+import { MovieService } from '@services/movies.service'
+
+const fresh: NextPage<{ movies: IMovie[] }> = ({ movies }) => {
+	return (
+		<Catalog
+			title="Fresh movie"
+			items={movies || []}
+			description="New movies and series in excellent quality: legal, safe, without ads"
+		/>
+	)
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+	try {
+		const {data: movies} = await MovieService.getAll('')
+
+		return {
+			props: {
+				movies,
+			},
+		}
+	} catch (e) {
+		return {
+			notFound: true,
+		}
+	}
+}
+
+export default fresh

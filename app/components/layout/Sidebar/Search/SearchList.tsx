@@ -15,7 +15,7 @@ const SearchList: FC<{ movies: IMovie[]; isSuccess: boolean }> = ({
 			{movies.length ? (
 				movies.map((movie) => (
 					<Link
-						key={movie.id}
+						key={movie._id}
 						href={getMovieUrl(movie.slug)}
 						className={styles.item}
 					>

@@ -18,7 +18,7 @@ export interface IActor {
 }
 
 export interface IMovie {
-    id: string,
+    _id: string,
     name: string,
     slug: string,
     description: string,
@@ -29,7 +29,7 @@ export interface IMovie {
     genres: IGenre[],
     countOpened: number,
     videoUrl: string,
-    actors: IActor,
+    actors: IActor[],
     isSendTelegram: boolean,
     parameters: {
         year: number,

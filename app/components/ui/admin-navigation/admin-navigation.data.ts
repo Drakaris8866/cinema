@@ -8,7 +8,7 @@ export const adminNavigationItems: IAdminNavigationData[] = [
 	},
 	{
 		link: `${getAdminUrl("users")}`,
-		title: "User"
+		title: "Users"
 	},
 	{
 		link: `${getAdminUrl("movies")}`,

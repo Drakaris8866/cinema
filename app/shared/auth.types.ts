@@ -6,6 +6,7 @@ export interface IUser {
 	email: string
 	isAdmin: boolean
 	createdAt: string
+	password: string
 }
 
 export interface IAuthResponse extends ITokens {

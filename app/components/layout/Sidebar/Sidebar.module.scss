@@ -1,0 +1,10 @@
+.sidebar{
+  @apply p-layout;
+
+}
+.sidebar::-webkit-scrollbar{
+  display: none;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  display: none;
+}

@@ -9,7 +9,7 @@ const PopularMovie = () => {
 		'popular movie',
 		() => MovieService.getPopularMovie(''),
 		{
-			select: ({ data }) => data,
+			select: ({ data }) => data.slice(0,3),
 		}
 	)
 

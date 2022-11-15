@@ -3,7 +3,7 @@ import { useRedirect } from '@screens/auth/useRedirect'
 import { useAuth } from '@hooks/useAuth'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { IAuthInput } from '@screens/auth/auth.interface'
-import Heading from '@ui/Heading'
+import Heading from '@ui/heading/Heading'
 import Button from '@ui/form-elements/Button'
 import Meta from '@utils/Meta/Meta'
 

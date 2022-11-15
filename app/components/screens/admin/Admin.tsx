@@ -1,7 +1,7 @@
 import Statistics from '@screens/admin/Statistics/Statistics'
 import { FC } from 'react'
 import AdminNavigation from '@ui/admin-navigation/AdminNavigation'
-import Heading from '@ui/Heading'
+import Heading from '@ui/heading/Heading'
 
 const Admin: FC = () => {
 	return (

@@ -4,12 +4,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 @import 'react-redux-toastr/src/styles/index';
+@import "react-select";
 
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: "Outfit";
+  @apply bg-gray-900;
+  @apply text-white;
+  ::-webkit-scrollbar{
+    width: 5px;
+    height: 8px;
+    background-color:  transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #e30b13;
+    border-radius: 9em;
+    box-shadow: inset 1px 1px 10px #c52329;
+  }
 }
 
 a {
@@ -39,4 +52,22 @@ input[type="file"]::-webkit-file-upload-button{
 }
 input:focus{
   box-shadow: none!important;
+}
+
+.slide-animation-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.slide-animation-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.slide-animation-exit {
+  opacity: 1;
+}
+.slide-animation-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
 }

@@ -1,10 +1,11 @@
-import axios from 'axios'
 import { API_URL } from '@config/api.config'
-import { errorCatch, getContentType } from './api.helper'
-import Cookies from 'js-cookie'
-import { AuthService } from '@services/auth/auth.service'
 import { removeTokensStorage } from '@services/auth/auth.helper'
+import { AuthService } from '@services/auth/auth.service'
 import { logout } from '@store/user/user.actions'
+import axios from 'axios'
+import Cookies from 'js-cookie'
+
+import { errorCatch, getContentType } from './api.helper'
 
 export const axiosClassic = axios.create({
 	baseURL: API_URL,
@@ -18,10 +19,8 @@ export const instance = axios.create({
 
 instance.interceptors.request.use((config) => {
 	const accessToken = Cookies.get('accessToken')
-
-	if (config.headers && accessToken) {
+	if (config.headers && accessToken)
 		config.headers.Authorization = `Bearer ${accessToken}`
-	}
 
 	return config
 })

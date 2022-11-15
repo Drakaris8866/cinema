@@ -4,7 +4,7 @@ import { useSearch } from '@components/layout/Sidebar/Search/useSearch'
 import SearchList from '@components/layout/Sidebar/Search/SearchList'
 
 const Search = () => {
-	const { searchTerm, handleSearch, data, isSuccess } = useSearch()
+	const { searchTerm, handleSearch, queryData:{data, isSuccess} } = useSearch()
 
 	return (
 		<div>

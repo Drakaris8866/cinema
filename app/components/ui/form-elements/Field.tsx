@@ -5,7 +5,7 @@ import styles from './form.module.scss'
 const Field = forwardRef<HTMLInputElement, IField>(
 	({ type = 'text', placeholder, style, error, ...rest }, ref) => {
 		return (
-			<div className={`${styles.common} ${styles.field} ${style}`}>
+			<div className={`${styles.common} ${styles.field}`} style={style}>
 				<label>
 					<span>{placeholder}</span>
 					<input ref={ref} type={type} {...rest} />

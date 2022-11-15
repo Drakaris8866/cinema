@@ -7,7 +7,7 @@ export const useSearch = () => {
 	const [searchTerm, setSearchTerm] = useState('')
 	const debounceSearch = useDebounces(searchTerm, 700)
 
-	const { data, isSuccess } = useQuery(
+	const queryData = useQuery(
 		['search movie', debounceSearch],
 		() => MovieService.getAll(debounceSearch),
 		{
@@ -20,5 +20,5 @@ export const useSearch = () => {
 		setSearchTerm(e.target.value)
 	}
 
-	return { searchTerm, handleSearch, data, isSuccess }
+	return { queryData, handleSearch, searchTerm }
 }

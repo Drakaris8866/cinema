@@ -2,6 +2,7 @@ import React, { ChangeEvent, FC } from 'react'
 
 import styles from './SearchField.module.scss'
 import { MdSearch } from 'react-icons/md'
+import { MaterialIcon } from '@ui/icons/MaterialIcon'
 
 interface ISearchField {
 	searchTerm: string
@@ -11,7 +12,7 @@ interface ISearchField {
 const SearchField: FC<ISearchField> = ({ searchTerm, handleSearch }) => {
 	return (
 		<div className={styles.root}>
-			<MdSearch className={styles.icon} />
+			<MaterialIcon name="MdSearch"/>
 			<input
 				onChange={handleSearch}
 				value={searchTerm}

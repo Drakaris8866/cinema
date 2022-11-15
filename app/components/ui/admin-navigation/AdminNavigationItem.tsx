@@ -4,8 +4,9 @@ import Link from 'next/link'
 import styles from './AdminNavigation.module.scss'
 import { useRouter } from 'next/router'
 
-const AdminNavigationItem: FC<{ item: IAdminNavigationData }> = ({ item: { link, title } }) => {
-
+const AdminNavigationItem: FC<{ item: IAdminNavigationData }> = ({
+	item: { link, title },
+}) => {
 	const { asPath } = useRouter()
 
 	return (
@@ -13,11 +14,11 @@ const AdminNavigationItem: FC<{ item: IAdminNavigationData }> = ({ item: { link,
 			<Link
 				className={`${styles.item} ${asPath === link && `${styles.active}`}`}
 				href={`${link}`}
-					>
-					{ title }
-					</Link>
-					</li>
-					)
-				}
+			>
+				{title}
+			</Link>
+		</li>
+	)
+}
 
-				export default AdminNavigationItem
+export default AdminNavigationItem
