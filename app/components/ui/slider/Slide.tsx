@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { ISlide } from '@ui/slider/slider.inderface'
 import { useRouter } from 'next/router'
@@ -11,8 +11,16 @@ interface ISlideItem {
 
 const SlideItem: FC<ISlideItem> = ({ slide, buttonTitle = 'Watch' }) => {
 	const { push } = useRouter()
+	const [showVideo, setShowVideo] = useState(false)
+	useEffect(() => {
+		const timeout =  setTimeout(() => setShowVideo(true), 5000)
+		return () => {
+			clearTimeout(timeout)
+			setShowVideo(false)
+		}
+	}, [slide])
 
-
+	console.log(showVideo)
 	return (
 		<div className={styles.slide}>
 			{slide.bigPoster && (

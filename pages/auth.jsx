@@ -1,9 +1,9 @@
 import Auth from '../app/components/screens/auth/Auth'
 
-const auth = () => {
+const AuthPage = () => {
 	return (
 		<Auth />
 	)
 }
 
-export default auth
+export default AuthPage

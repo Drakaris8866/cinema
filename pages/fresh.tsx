@@ -3,7 +3,7 @@ import { IMovie } from '@shared/movies.types'
 import Catalog from '@ui/catalog/Catalog'
 import { MovieService } from '@services/movies.service'
 
-const fresh: NextPage<{ movies: IMovie[] }> = ({ movies }) => {
+const FreshPage: NextPage<{ movies: IMovie[] }> = ({ movies }) => {
 	return (
 		<Catalog
 			title="Fresh movie"
@@ -15,12 +15,13 @@ const fresh: NextPage<{ movies: IMovie[] }> = ({ movies }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
 	try {
-		const {data: movies} = await MovieService.getAll('')
+		const { data: movies } = await MovieService.getAll('')
 
 		return {
 			props: {
 				movies,
 			},
+			revalidate: 60,
 		}
 	} catch (e) {
 		return {
@@ -29,4 +30,4 @@ export const getStaticProps: GetStaticProps = async () => {
 	}
 }
 
-export default fresh
+export default FreshPage

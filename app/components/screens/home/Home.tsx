@@ -6,32 +6,29 @@ import Heading from '@ui/heading/Heading'
 import Gallery from '@ui/gallery/Gallery'
 
 const Home: FC<IHome> = ({ slides, trendingMovies, actors }) => {
-	return <Meta
-		title="Watch movies online"
-		description="Watch MovieApp movies and TV shows online or stream right to your browser."
-	>
-		<Heading
+	return (
+		<Meta
 			title="Watch movies online"
-			className="text-gray-500 mb-8 text-xl"
-		/>
+			description="Watch MovieApp movies and TV shows online or stream right to your browser."
+		>
+			<Heading
+				title="Watch movies online"
+				className="text-gray-500 mb-8 text-xl"
+			/>
 
-		{slides.length && <Slider slides={slides} />}
+			{slides.length && <Slider slides={slides} />}
 
-		<Heading
-			title="Trending now"
-			className="mt-8 text-xl"
-		/>
+			<Heading title="Trending now" className="mt-8 text-xl" />
 
-		{trendingMovies.length && <Gallery items={trendingMovies} variant="vertical"/>}
+			{trendingMovies.length && (
+				<Gallery items={trendingMovies} variant="vertical" />
+			)}
 
-		<Heading
-			title="Best actors"
-			className="mt-8 text-xl"
-		/>
+			<Heading title="Best actors" className="mt-8 text-xl" />
 
-		{trendingMovies.length && <Gallery items={actors} variant="vertical"/>}
-
-	</Meta>
+			{trendingMovies.length && <Gallery items={actors} variant="vertical" />}
+		</Meta>
+	)
 }
 
 export default Home

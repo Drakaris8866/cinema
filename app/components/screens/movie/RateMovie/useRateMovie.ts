@@ -14,7 +14,6 @@ export const useRateMovie = (movieID: string) => {
 		() => RatingService.getUserMovieRating(movieID),
 		{
 			onSuccess({ data }) {
-				console.log(data)
 				setRating(+data)
 			},
 			enabled: !!movieID,

@@ -1,0 +1,15 @@
+.items {
+  @apply flex flex-wrap gap-5;
+  .item {
+    @apply air-block rounded-2xl h-56 w-96 relative;
+    >p{
+      @apply absolute w-full text-center z-2 text-2xl bottom-9;
+    }
+    >button{
+      @apply absolute z-3 bottom-5;
+    }
+    >a>img{
+      @apply air-block rounded-2xl absolute image-like-bg top-0 left-0 h-full w-full;
+    }
+  }
+}

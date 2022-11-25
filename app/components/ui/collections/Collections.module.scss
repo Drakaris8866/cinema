@@ -1,0 +1,17 @@
+.items {
+  @apply justify-between flex flex-wrap gap-5;
+  .item {
+    @apply air-block rounded-2xl h-56 w-96 relative transition-transform;
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    > img {
+      @apply air-block rounded-2xl absolute image-like-bg top-0 left-0 h-full w-full;
+    }
+
+    .text {
+      @apply absolute text-2xl text-center w-full bottom-2;
+    }
+  }
+}

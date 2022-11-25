@@ -12,7 +12,6 @@ const RateMovie: FC<{ movieID: string; slug: string }> = ({
 }) => {
 	const { rating, isSended, handleClick } = useRateMovie(movieID)
 	const { user } = useAuth()
-	console.log(rating)
 
 	return (
 		<div className={styles.wrapper}>
