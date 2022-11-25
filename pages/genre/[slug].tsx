@@ -30,7 +30,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 		}))
 		return {
 			paths,
-			fallback: 'blocking',
+			fallback: false,
 		}
 	} catch (e) {
 		return {
@@ -45,9 +45,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		const { data: genre } = await GenreService.getBySlug(String(params?.slug))
 
 		const { data: movies } = await MovieService.getByGenres([genre._id])
-
+		
 		return {
 			props: { movies, genre },
+			revalidate: 60,
 		}
 	} catch (e) {
 		return {

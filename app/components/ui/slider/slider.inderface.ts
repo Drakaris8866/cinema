@@ -4,4 +4,5 @@ export interface ISlide {
 	title: string
 	subTitle: string
 	link: string
+	videoUrl: string
 }

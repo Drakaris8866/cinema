@@ -4,12 +4,14 @@ import { getGenreUrl } from '@config/url.config'
 import ContentList from '@screens/movie/Content/ContentList/ContentList'
 import styles from './Content.module.scss'
 import FavoriteBtn from '@ui/favorite/FavoriteBtn'
+import { useAuth } from '@hooks/useAuth'
 
 const Content: FC<{ movie: IMovie }> = ({ movie }) => {
+	const { user } = useAuth()
 	return (
 		<div className={styles.content}>
 			<h1>{movie.title}</h1>
-			<FavoriteBtn movieID={movie._id} />
+			{user && <FavoriteBtn movieID={movie._id} />}
 			<div className={styles.details}>
 				{`${movie.parameters.year}-${movie.parameters.country}-${movie.parameters.duration} min.`}
 			</div>

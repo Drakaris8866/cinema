@@ -1,10 +1,5 @@
 import { EditorProps } from 'draft-js'
-import {
-	ButtonHTMLAttributes,
-	CSSProperties,
-	HTMLAttributes,
-	InputHTMLAttributes,
-} from 'react'
+import { ButtonHTMLAttributes, CSSProperties, InputHTMLAttributes } from 'react'
 import { FieldError } from 'react-hook-form'
 
 export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {}
@@ -34,4 +29,5 @@ export interface IUploadField {
 	style?: CSSProperties
 	isNoImage?: boolean
 	className?: string
+	video?: string
 }

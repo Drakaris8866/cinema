@@ -2,6 +2,7 @@ import { useQuery } from 'react-query'
 import { GenreService } from '@services/genres.service'
 import { IMenuItem } from '@components/layout/Navigation/MenuContainer/menu.types'
 import { getGenreUrl } from '@config/url.config'
+import { UsersService } from '@services/users.service'
 
 export const usePopularGenres = () => {
 	const queryData = useQuery('popular genres', () => GenreService.getAll(), {

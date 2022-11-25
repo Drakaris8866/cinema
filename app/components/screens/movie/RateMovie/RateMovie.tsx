@@ -10,9 +10,8 @@ const RateMovie: FC<{ movieID: string; slug: string }> = ({
 	movieID,
 	slug,
 }) => {
-	const { rating, isSended, handleClick } = useRateMovie(movieID)
 	const { user } = useAuth()
-	console.log(rating)
+	const { rating, isSended, handleClick } = useRateMovie(movieID)
 
 	return (
 		<div className={styles.wrapper}>

@@ -2,7 +2,7 @@
 
 .gallery {
   @apply flex items-center overflow-x-auto flex-nowrap py-3 gap-5;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: revert;
 
   &::-webkit-scrollbar {
     display: none;

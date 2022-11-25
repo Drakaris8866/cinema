@@ -86,40 +86,40 @@ const MovieEdit: FC = () => {
 								error={errors.parameters}
 							/>
 						</div>
-							<div>
-								<Controller
-									name="genres"
-									control={control}
-									rules={{
-										required: 'Please select at least one genre!',
-									}}
-									render={({ field }) => (
-										<DynamicSelect
-											field={field}
-											options={genres || []}
-											isLoading={isGenresLoading}
-											isMulti
-											placeholder="Select genres"
-										/>
-									)}
-								/>
-								<Controller
-									name="actors"
-									control={control}
-									rules={{
-										required: 'Please select at least one actor!',
-									}}
-									render={({ field }) => (
-										<DynamicSelect
-											field={field}
-											options={actors || []}
-											isLoading={isActorsLoading}
-											isMulti
-											placeholder="Select actors"
-										/>
-									)}
-								/>
-							</div>
+						<div>
+							<Controller
+								name="genres"
+								control={control}
+								rules={{
+									required: 'Please select at least one genre!',
+								}}
+								render={({ field }) => (
+									<DynamicSelect
+										field={field}
+										options={genres || []}
+										isLoading={isGenresLoading}
+										isMulti
+										placeholder="Select genres"
+									/>
+								)}
+							/>
+							<Controller
+								name="actors"
+								control={control}
+								rules={{
+									required: 'Please select at least one actor!',
+								}}
+								render={({ field }) => (
+									<DynamicSelect
+										field={field}
+										options={actors || []}
+										isLoading={isActorsLoading}
+										isMulti
+										placeholder="Select actors"
+									/>
+								)}
+							/>
+						</div>
 						<div className="flex justify-between gap-10">
 							<Controller
 								name="poster"
@@ -178,7 +178,7 @@ const MovieEdit: FC = () => {
 									placeholder="Video"
 									error={error}
 									folder="movies"
-									image={value}
+									video={value}
 									onChange={onChange}
 									isNoImage
 								/>

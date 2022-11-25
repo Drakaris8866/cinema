@@ -1,31 +1,23 @@
 import Home from '@screens/home/Home'
-import Meta from '@utils/Meta/Meta'
 import { GetStaticProps, NextPage } from 'next'
 import { MovieService } from '@services/movies.service'
 import { ISlide } from '@ui/slider/slider.inderface'
 import { getActorUrl, getMovieUrl } from '@config/url.config'
 import { getGenresList } from '@utils/movie/getGenreList'
-import { errorCatch } from '../app/api/api.helper'
 import { IHome } from '@screens/home/home.interface'
-import { IMovie } from '@shared/movies.types'
 import { IGalleryItem } from '@ui/gallery/gallery.interface'
 import { ActorsService } from '@services/actors.service'
 
-const Main: NextPage<IHome> = (props) => {
+const Main: NextPage<IHome> = ({ slides, trendingMovies, actors }) => {
 	return (
-		<Meta
-			title="Watch movies online"
-			description="Watch MovieApp movies adn TV shows"
-		>
-			<Home {...props}/>
-		</Meta>
+		<Home slides={slides} trendingMovies={trendingMovies} actors={actors} />
 	)
 }
 
 export const getStaticProps: GetStaticProps = async () => {
 	try {
-		const { data: movies } = await MovieService.getAll()
-		const { data: dataActors } = await ActorsService.getActors()
+		const { data: movies } = await MovieService.getAll('')
+		const { data: dataActors } = await ActorsService.getActors('')
 		const dataTrendingMovies = await MovieService.getMostPopularMovie()
 		const slides: ISlide[] = movies.slice(0, 3).map((movie) => ({
 			_id: movie._id,
@@ -33,6 +25,7 @@ export const getStaticProps: GetStaticProps = async () => {
 			subTitle: getGenresList(movie.genres),
 			title: movie.title,
 			bigPoster: movie.bigPoster,
+			videoUrl: movie.videoUrl
 		}))
 
 		const trendingMovies: IGalleryItem[] = dataTrendingMovies.map((movie) => ({
@@ -55,17 +48,16 @@ export const getStaticProps: GetStaticProps = async () => {
 			props: {
 				slides,
 				trendingMovies,
-				actors
+				actors,
 			} as IHome,
 		}
 	} catch (error) {
-		console.log(errorCatch(error))
 		return {
 			props: {
 				slides: [],
 				trendingMovies: [],
-				actors: []
-			} as IHome,
+				actors: [],
+			},
 		}
 	}
 }

@@ -6,13 +6,12 @@ import styles from './VideoPlayer.module.scss'
 import { MaterialIcon } from '@ui/icons/MaterialIcon'
 import AuthPlaceholder from '@ui/video-player/AuthPlaceholder/AuthPlaceholdre'
 
-const VideoPlayer: FC<IVideoPlayer> = ({videoSource , slug }) => {
-
-	const {video ,videoRef, actions } = useVideo()
-	const {user} = useAuth()
+const VideoPlayer: FC<IVideoPlayer> = ({ videoSource, slug, className }) => {
+	const { video, videoRef, actions } = useVideo()
+	const { user } = useAuth()
 
 	return (
-		<div className={`${styles.wrapper} ${user ? "h-96" : 'h-96'}`}>
+		<div className={`${styles.wrapper} ${user ? 'h-96' : 'h-96'} ${className}`}>
 			{user ? (
 				<>
 					<video
@@ -71,7 +70,9 @@ const VideoPlayer: FC<IVideoPlayer> = ({videoSource , slug }) => {
 					</div>
 				</>
 			) : (
-				<AuthPlaceholder slug={slug} />
+				<div className="h-96">
+					<AuthPlaceholder slug={slug} />
+				</div>
 			)}
 		</div>
 	)

@@ -5,12 +5,34 @@
   max-width: 1200px;
 
   .slide {
-    @apply relative h-80 rounded-3xl overflow-hidden shadow-xl flex items-end;
-
+    @apply relative rounded-3xl overflow-hidden shadow-xl flex;
+    height: 50vh;
+    min-height: 500px;
     @include fade-bg-gradient();
 
     .image {
       @apply image-like-bg;
+    }
+
+    .video {
+      @apply image-like-bg absolute;
+      top: -4.75rem;
+    }
+
+    .volume {
+      @apply absolute h-10 w-10 top-5 right-5 z-50 hover:cursor-pointer block;
+
+    }
+    .dioLine{
+      @apply absolute h-10 w-10 top-5 right-5 z-50 hover:cursor-pointer block opacity-100 transition-opacity;
+      background-image: linear-gradient(to bottom right, transparent 45%, #E30B13, transparent 54%);
+      background-repeat: no-repeat;
+      font-size: 50px;
+      text-align: center;
+      color: #ffff00;
+    }
+    .visible{
+      @apply opacity-0;
     }
 
     .content {

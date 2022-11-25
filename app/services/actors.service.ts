@@ -6,7 +6,7 @@ import { IActorEditInput, IGenreEditInput } from '@screens/admin/Genres/Edit/gen
 
 export const ActorsService = {
 	async getActors(searchTerm?: string) {
-		return axios.get<IActor[]>(getActorsUrl(``), {
+		return axiosClassic.get<IActor[]>(getActorsUrl(``), {
 			params: searchTerm
 				? {
 					searchTerm,

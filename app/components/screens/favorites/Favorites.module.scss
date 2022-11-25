@@ -1,0 +1,23 @@
+.items {
+  @apply flex flex-wrap gap-5 mt-20;
+  .item {
+    @apply relative flex items-end mb-10 h-44 transition-transform;
+    width: 31%;
+
+    > a {
+      width: 100% !important;
+    }
+
+    > p {
+      @apply absolute w-full text-center z-2 text-2xl bottom-9;
+    }
+
+    > button {
+      @apply absolute z-10 bottom-10;
+    }
+
+    > a > img {
+      @apply air-block rounded-2xl absolute image-like-bg top-0 left-0 h-full w-full;
+    }
+  }
+}

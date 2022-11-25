@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import PopularMovie from '@components/layout/Sidebar/MoviesConatainer/PopularMovie'
-import NotAuthFavorites from '@components/layout/Sidebar/MoviesConatainer/FavoriteMovies/NotAuthFavorites'
 import FavoriteMovie from '@components/layout/Sidebar/MoviesConatainer/FavoriteMovies/FavoriteMovies'
 
 const MoviesContainer: FC = () => {

@@ -38,6 +38,7 @@
     "react-star-ratings": "^2.3.0",
     "react-transition-group": "^4.4.5",
     "sass": "^1.55.0",
+    "sharp": "^0.31.2",
     "string-strip-html": "^11.6.20",
     "yarn": "^1.22.19"
   },

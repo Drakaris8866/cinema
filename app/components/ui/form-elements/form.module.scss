@@ -61,6 +61,9 @@
   .uploadFlex {
     @apply flex;
 
+    > .uploadVideoContainer{
+      @apply w-96 h-60;
+    }
     > .uploadImageContainer {
       @apply shrink-0 relative w-24 h-24;
 
