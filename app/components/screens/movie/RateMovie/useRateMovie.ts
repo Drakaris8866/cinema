@@ -5,11 +5,10 @@ import { toastrError } from '@utils/toastr-error'
 import { toastr } from 'react-redux-toastr'
 
 export const useRateMovie = (movieID: string) => {
-
 	const [rating, setRating] = useState(0)
 	const [isSended, setIsSended] = useState(false)
 
-  const { refetch } = useQuery(
+	const { refetch } = useQuery(
 		'your movie rating',
 		() => RatingService.getUserMovieRating(movieID),
 		{
