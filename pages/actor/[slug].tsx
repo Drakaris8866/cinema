@@ -1,6 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { IActor, IGenre, IMovie } from '@shared/movies.types'
-import { GenreService } from '@services/genres.service'
+import { IActor, IMovie } from '@shared/movies.types'
 import { MovieService } from '@services/movies.service'
 import Catalog from '@ui/catalog/Catalog'
 import Error404 from '../404'
@@ -8,11 +7,11 @@ import { ActorsService } from '@services/actors.service'
 
 interface IActorPage {
 	actor: IActor
-	movies: IMovie[]
+	movies: IMovie[] | undefined
 }
 
 const ActorPage: NextPage<IActorPage> = ({ actor, movies }) => {
-	return actor ? <Catalog title={actor.name} items={movies} /> : <Error404 />
+	return actor ? <Catalog title={actor.name} items={movies || []} /> : <Error404 />
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -41,7 +40,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 		return {
 			props: { movies, actor },
-			revalidate: 60,
+			revalidate: 60
 		}
 	} catch (e) {
 		return {
