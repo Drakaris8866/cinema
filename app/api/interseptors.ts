@@ -14,7 +14,7 @@ export const axiosClassic = axios.create({
 })
 
 export const instance = axios.create({
-	baseURL: API_URL,
+	baseURL: 'https://cinema-puce.vercel.app/',
 	headers: getContentType(),
 })
 
