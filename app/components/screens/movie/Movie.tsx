@@ -8,6 +8,7 @@ import Content from '@screens/movie/Content/Content'
 
 import dynamic from 'next/dynamic'
 import { useUpdateCountOpened } from '@screens/movie/useUpdateCountOpened'
+import SkeletonLoader from '@components/layout/Navigation/MenuContainer/GenreMenu/Loader'
 
 const DynamicVideoPlayer = dynamic(
 	() => import('@ui/video-player/VideoPlayer'),
@@ -15,18 +16,14 @@ const DynamicVideoPlayer = dynamic(
 		ssr: false,
 	}
 )
-const DynamicRateMovie = dynamic(
-	() => import('./RateMovie/RateMovie'),
-	{
-		ssr: false,
-	}
-)
+const DynamicRateMovie = dynamic(() => import('./RateMovie/RateMovie'), {
+	ssr: false,
+})
 
 const Movie: FC<{ movie: IMovie; similarMovies: IGalleryItem[] }> = ({
 	movie,
 	similarMovies,
 }) => {
-
 	useUpdateCountOpened(movie.slug)
 
 	return (
@@ -35,14 +32,17 @@ const Movie: FC<{ movie: IMovie; similarMovies: IGalleryItem[] }> = ({
 				image={movie.bigPoster}
 				Content={() => <Content movie={movie} />}
 			/>
-			<DynamicVideoPlayer slug={movie.slug} videoSource={movie.videoUrl} />
+			<div className="relative">
+				<DynamicVideoPlayer className="z-2" slug={movie.slug} videoSource={movie.videoUrl} />
+				<div className="absolute h-full w-full -top-1 left-0 z-1"><SkeletonLoader height="100%"/></div>
+			</div>
 
 			<div>
 				<Heading title="Similar" />
 				<Gallery items={similarMovies} variant="vertical" />
 			</div>
 
-				<DynamicRateMovie movieID={movie._id} slug={movie.slug}/>
+			<DynamicRateMovie movieID={movie._id} slug={movie.slug} />
 		</>
 	)
 }

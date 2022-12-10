@@ -7,7 +7,6 @@ export const useFavoriteBtn = (movieID: string) => {
 	const [favoriteMovie, setFavoriteMovie] = useState(false)
 
 	const {
-		isLoading,
 		data: favoriteMovies,
 		refetch,
 	} = useQuery('favorite movie', () => UsersService.getUserFavoritesMovie(), {
@@ -19,7 +18,7 @@ export const useFavoriteBtn = (movieID: string) => {
 		favoriteMovies.some((m) => m._id === movieID) && setFavoriteMovie(true)
 	}, [favoriteMovies, movieID])
 
-	const { mutateAsync } = useMutation(
+	const { mutateAsync, isLoading } = useMutation(
 		'update favorite status',
 		() => UsersService.toggleFavorite(movieID),
 		{
@@ -36,5 +35,6 @@ export const useFavoriteBtn = (movieID: string) => {
 	return {
 		favoriteMovie,
 		mutateAsync,
+		isLoading
 	}
 }
