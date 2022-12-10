@@ -34,7 +34,7 @@ const Movie: FC<{ movie: IMovie; similarMovies: IGalleryItem[] }> = ({
 			/>
 			<div className="relative">
 				<DynamicVideoPlayer className="z-2" slug={movie.slug} videoSource={movie.videoUrl} />
-				<div className="absolute h-full w-full -top-1 left-0 z-1"><SkeletonLoader height="100%"/></div>
+				<div style={{height: "643px"}} className="absolute w-full -top-1 left-0 z-1"><SkeletonLoader height="100%"/></div>
 			</div>
 
 			<div>
