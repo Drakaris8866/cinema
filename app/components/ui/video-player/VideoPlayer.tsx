@@ -70,7 +70,7 @@ const VideoPlayer: FC<IVideoPlayer> = ({ videoSource, slug, className }) => {
 					</div>
 				</>
 			) : (
-				<div className="h-96">
+				<div style={{height:"567px"}} className="h-96">
 					<AuthPlaceholder slug={slug} />
 				</div>
 			)}
